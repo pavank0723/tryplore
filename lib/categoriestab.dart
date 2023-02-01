@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tryplore/res/app_colors.dart';
 
 class CategoriesTab extends StatefulWidget {
   // String pincode;
@@ -20,12 +21,12 @@ class _CategoriesTabState extends State<CategoriesTab> {
           children: const <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                  color: AppColors.greyLightest
               ),
               child: Text(
                 'Profile',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: AppColors.primary,
                   fontSize: 24,
                 ),
               ),
@@ -54,22 +55,29 @@ class _CategoriesTabState extends State<CategoriesTab> {
         ),
       ),
       appBar: AppBar(
-        title: Text('Categories'),
+        iconTheme: IconThemeData(
+          size: 24,
+          color: AppColors.primary,//change color on your need
+        ),
+        backgroundColor: AppColors.greyLightest,
+        title: Text('Categories',style: TextStyle(
+            color: AppColors.primary
+        ),),
         actions: [
-          Icon(Icons.search),
+          // Icon(Icons.search),
+          // SizedBox(
+          //   width: 25,
+          // ),
+          Icon(Icons.favorite,color: AppColors.primary),
           SizedBox(
             width: 25,
           ),
-          Icon(Icons.favorite),
-          SizedBox(
-            width: 25,
-          ),
-          Icon(Icons.shopping_cart),
+          Icon(Icons.shopping_cart,color: AppColors.primary),
           SizedBox(
             width: 10,
           ),
           IconButton(
-            icon: Icon(Icons.location_on_outlined),
+            icon: Icon(Icons.location_on_outlined,color: AppColors.primary),
             onPressed: () {
               // showDialog(
               //     context: context,

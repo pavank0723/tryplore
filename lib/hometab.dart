@@ -4,6 +4,7 @@ import 'package:tryplore/categoriestab.dart';
 import 'package:tryplore/my_home_page.dart';
 import 'package:tryplore/notificationtab.dart';
 import 'package:tryplore/profiletab.dart';
+import '../res/app_colors.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({Key? key}) : super(key: key);
@@ -39,10 +40,10 @@ class _HomeTabState extends State<HomeTab> {
           });
         },
         iconSize: 30.0,
-        selectedColor: Color(0xff040307),
-        strokeColor: Color(0x30040307),
-        unSelectedColor: Color(0xffacacac),
-        backgroundColor: Colors.white,
+        selectedColor: AppColors.primary,
+        strokeColor: AppColors.greyLightest,
+        unSelectedColor: AppColors.primaryLight,
+        backgroundColor: AppColors.greyLightest,
         items: [
           CustomNavigationBarItem(
             // selectedIcon: HomeTab(),

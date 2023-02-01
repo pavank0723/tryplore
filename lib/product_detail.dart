@@ -279,7 +279,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             context: context,
                             builder: (_) => AlertDialog(
                                   content: Image.asset(
-                                    'assets/chart.jpeg',
+                                    'assets/img_chart.jpeg',
                                     fit: BoxFit.cover,
                                   ),
                                 ));

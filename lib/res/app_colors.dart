@@ -3,25 +3,25 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const primarySwatchColor = MaterialColor(0xFF2196F3, {
-    50: Color.fromRGBO(33, 150, 243, .1),
-    100: Color.fromRGBO(33, 150, 243, .2),
-    200: Color.fromRGBO(33, 150, 243, .3),
-    300: Color.fromRGBO(33, 150, 243, .4),
-    400: Color.fromRGBO(33, 150, 243, .5),
-    500: Color.fromRGBO(33, 150, 243, .6),
-    600: Color.fromRGBO(33, 150, 243, .7),
-    700: Color.fromRGBO(33, 150, 243, .8),
-    800: Color.fromRGBO(33, 150, 243, .9),
-    900: Color.fromRGBO(33, 150, 243, 1),
+  static const primarySwatchColor = MaterialColor(0xFF2878fd, {
+    50: Color.fromRGBO(40, 120, 253, .1),
+    100: Color.fromRGBO(40, 120, 253, .2),
+    200: Color.fromRGBO(40, 120, 253, .3),
+    300: Color.fromRGBO(40, 120, 253, .4),
+    400: Color.fromRGBO(40, 120, 253, .5),
+    500: Color.fromRGBO(40, 120, 253, .6),
+    600: Color.fromRGBO(40, 120, 253, .7),
+    700: Color.fromRGBO(40, 120, 253, .8),
+    800: Color.fromRGBO(40, 120, 253, .9),
+    900: Color.fromRGBO(40, 120, 253, 1),
   });
 
   //Primary Color
-  static const primaryLightest = Color(0XFFE3F2FD);
-  static const primaryLight = Color(0XFFBBDEFB);
-  static const primary = Color(0XFF2196F3);
-  static const primaryDark = Color(0XFF1565C0);
-  static const primaryDarkest = Color(0XFF0D47A1);
+  static const primaryLightest = Color(0XFFD4E4FF);
+  static const primaryLight = Color(0XFFA9C9FE);
+  static const primary = Color(0XFF2878fd);
+  static const primaryDark = Color(0XFF2060CA);
+  static const primaryDarkest = Color(0XFF184898);
 
   //Error Color
   static const errorLightest = Color(0XFFFAE2E0);

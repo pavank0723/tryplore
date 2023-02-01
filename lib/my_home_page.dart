@@ -4,6 +4,8 @@ import 'package:tryplore/mens.dart';
 import 'package:tryplore/offerstab.dart';
 import 'package:tryplore/profiletab.dart';
 import 'package:badges/badges.dart';
+import 'package:tryplore/res/app_colors.dart';
+import 'package:tryplore/res/app_images.dart';
 
 import 'categories.dart';
 
@@ -26,10 +28,10 @@ class _MyHomePageState extends State<MyHomePage> {
     'https://kwabey.com/images/never-quit-white-half-sleeves-tshirt-for-men/360/267.jpg',
   ];
   List<Categories> category = [
-    Categories(imgLabel: 'assets/4.jpg', name: 'Offers'),
-    Categories(imgLabel: 'assets/1.jpg', name: 'Men'),
-    Categories(imgLabel: 'assets/2.jpg', name: 'Women'),
-    Categories(imgLabel: 'assets/3.jpg', name: 'Kids'),
+    Categories(imgLabel: AppImages.picCategory1, name: 'Offers'),
+    Categories(imgLabel: AppImages.picCategory2, name: 'Men'),
+    Categories(imgLabel: AppImages.picCategory3, name: 'Women'),
+    Categories(imgLabel: AppImages.picCategory4, name: 'Kids'),
     // Categories(imgLabel: 'assets/4.jpg', name: 'Beauty'),
     // Categories(imgLabel: 'assets/1.jpg', name: 'Footwear'),
     // Categories(imgLabel: 'assets/2.jpg', name: 'Home'),
@@ -91,12 +93,12 @@ class _MyHomePageState extends State<MyHomePage> {
           children: const <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: AppColors.greyLightest,
               ),
               child: Text(
                 'Profile',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: AppColors.primary,
                   fontSize: 24,
                 ),
               ),
@@ -162,29 +164,36 @@ class _MyHomePageState extends State<MyHomePage> {
                   bool innerBoxIsScrolled) =>
               [
                 SliverAppBar(
+                  iconTheme: IconThemeData(
+                    size: 24,
+                    color: AppColors.primary,//change color on your need
+                  ),
+                  backgroundColor: AppColors.greyLightest,
                   floating: true,
                   snap: true,
                   // pinned: true,
-                  title: Text('Tryplore'),
+                  title: Image.asset(AppImages.picLogo,width: 90,),
                   actions: [
-                    Icon(Icons.search),
-                    SizedBox(
-                      width: 25,
-                    ),
+                    // Icon(Icons.search,color: AppColors.primary),
+                    // SizedBox(
+                    //   width: 25,
+                    // ),
                     Badge(
                       position: BadgePosition(top: 2, end: -10),
-                      badgeContent: Text('3'),
-                      child: Icon(Icons.favorite),
+                      badgeContent: Text('3',style: TextStyle(
+                          color: AppColors.greyLightest
+                      ),),
+                      child: Icon(Icons.favorite,color: AppColors.primary),
                     ),
                     SizedBox(
                       width: 25,
                     ),
-                    Icon(Icons.shopping_cart),
+                    Icon(Icons.shopping_cart,color: AppColors.primary),
                     SizedBox(
                       width: 10,
                     ),
                     IconButton(
-                      icon: Icon(Icons.location_on_outlined),
+                      icon: Icon(Icons.location_on_outlined,color: AppColors.primary),
                       onPressed: () {
                         showDialog(
                             context: context,
@@ -213,7 +222,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     TextButton(
                                       style: TextButton.styleFrom(
                                         backgroundColor: Colors.blue,
-                                        primary: Colors.white,
+                                        primary: Colors.black,
                                         minimumSize: Size(350, 45),
                                       ),
                                       onPressed: () {
@@ -1238,7 +1247,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               //   MaterialPageRoute(builder: (context) => ABC()),
                               // ),
                               child: Image(
-                                image: AssetImage('assets/offer1.jpg'),
+                                image: AssetImage(AppImages.picOffer1),
                               ),
                             ),
                             GestureDetector(
@@ -1247,7 +1256,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               //   MaterialPageRoute(builder: (context) => ABC()),
                               // ),
                               child: Image(
-                                image: AssetImage('assets/offer2.jpg'),
+                                image: AssetImage(AppImages.picOffer2),
                               ),
                             ),
                             Image.network(
