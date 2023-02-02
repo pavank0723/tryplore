@@ -1,24 +1,23 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:tryplore/mens.dart';
-import 'package:tryplore/offerstab.dart';
-import 'package:tryplore/profiletab.dart';
+import 'package:tryplore/models/category_items.dart';
+import 'package:tryplore/pages/mens_page.dart';
+import 'package:tryplore/pages/common/offers_page.dart';
+import 'package:tryplore/pages/profile_page.dart';
 import 'package:badges/badges.dart';
 import 'package:tryplore/res/app_colors.dart';
 import 'package:tryplore/res/app_images.dart';
 
-import 'categories.dart';
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   String pincode = '0';
-  List<Widget> push = [OffersTab(), ProfileTab()];
+  List<Widget> push = [OfferPage(), ProfilePage()];
   int _currentIndex = 0;
   List<String> images = [
     'https://kwabey.com/images/moon-knight-black-tshirt/360/1700.jpg',
@@ -27,16 +26,16 @@ class _MyHomePageState extends State<MyHomePage> {
     'https://kwabey.com/images/mood-of-the-day-white-tshirt/360/1695.jpg',
     'https://kwabey.com/images/never-quit-white-half-sleeves-tshirt-for-men/360/267.jpg',
   ];
-  List<Categories> category = [
-    Categories(imgLabel: AppImages.picCategory1, name: 'Offers'),
-    Categories(imgLabel: AppImages.picCategory2, name: 'Men'),
-    Categories(imgLabel: AppImages.picCategory3, name: 'Women'),
-    Categories(imgLabel: AppImages.picCategory4, name: 'Kids'),
-    // Categories(imgLabel: 'assets/4.jpg', name: 'Beauty'),
-    // Categories(imgLabel: 'assets/1.jpg', name: 'Footwear'),
-    // Categories(imgLabel: 'assets/2.jpg', name: 'Home'),
-    // Categories(imgLabel: 'assets/3.jpg', name: 'Accessories'),
-    // Categories(imgLabel: 'assets/4.jpg', name: 'Jwellery'),
+  List<CategoryItems> category = [
+    CategoryItems(imgLabel: AppImages.picCategory1, name: 'Offers'),
+    CategoryItems(imgLabel: AppImages.picCategory2, name: 'Men'),
+    CategoryItems(imgLabel: AppImages.picCategory3, name: 'Women'),
+    CategoryItems(imgLabel: AppImages.picCategory4, name: 'Kids'),
+    // CategoryItems(imgLabel: 'assets/4.jpg', name: 'Beauty'),
+    // CategoryItems(imgLabel: 'assets/1.jpg', name: 'Footwear'),
+    // CategoryItems(imgLabel: 'assets/2.jpg', name: 'Home'),
+    // CategoryItems(imgLabel: 'assets/3.jpg', name: 'Accessories'),
+    // CategoryItems(imgLabel: 'assets/4.jpg', name: 'Jwellery'),
   ];
   final CarouselController _controller = CarouselController();
   int _current = 0;
@@ -66,15 +65,15 @@ class _MyHomePageState extends State<MyHomePage> {
       //     CustomNavigationBarItem(
       //       selectedIcon: CategoriesTab(),
       //       icon: Icon(Icons.category),
-      //       title: Text("Categories"),
+      //       title: Text("CategoryItems"),
       //     ),
       //     CustomNavigationBarItem(
-      //       selectedIcon: OffersTab(),
+      //       selectedIcon: OfferPage(),
       //       icon: Icon(Icons.lightbulb_outline),
       //       title: Text("Offers"),
       //     ),
       //     CustomNavigationBarItem(
-      //       selectedIcon: ProfileTab(),
+      //       selectedIcon: ProfilePage(),
       //       icon: Icon(Icons.account_circle),
       //       title: Text("Profile"),
       //     ),
@@ -260,7 +259,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => Mens(
+                                            builder: (context) => MensPage(
                                                   pincode: pincode,
                                                 )),
                                       );
@@ -269,7 +268,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => OffersTab()),
+                                            builder: (context) => OfferPage()),
                                       );
                                       // Navigator.push(
                                       //   context,
@@ -362,7 +361,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => Mens(
+                                            builder: (context) => MensPage(
                                                   pincode: pincode,
                                                 )),
                                       );
@@ -398,7 +397,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => Mens(
+                                            builder: (context) => MensPage(
                                                   pincode: pincode,
                                                 )),
                                       );
@@ -434,7 +433,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => Mens(
+                                            builder: (context) => MensPage(
                                                   pincode: pincode,
                                                 )),
                                       );
@@ -478,7 +477,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           //           Navigator.push(
                           //             context,
                           //             MaterialPageRoute(
-                          //                 builder: (context) => Mens(
+                          //                 builder: (context) => MensPage(
                           //                       pincode: pincode,
                           //                     )),
                           //           );
@@ -488,7 +487,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           //           Navigator.push(
                           //             context,
                           //             MaterialPageRoute(
-                          //                 builder: (context) => OffersTab()),
+                          //                 builder: (context) => OfferPage()),
                           //           );
                           //           // Navigator.push(
                           //           //   context,
@@ -852,7 +851,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              Mens(pincode: pincode)),
+                                              MensPage(pincode: pincode)),
                                     );
                                   },
                                   child: Container(
@@ -874,7 +873,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              Mens(pincode: pincode)),
+                                              MensPage(pincode: pincode)),
                                     );
                                   },
                                   child: Container(

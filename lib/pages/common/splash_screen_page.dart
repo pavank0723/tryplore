@@ -4,9 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-import '../hometab.dart';
-import '../res/app_colors.dart';
-import '../res/app_images.dart';
+import '../../widgets/bottom_nav_bar.dart';
+import '../../res/app_colors.dart';
+import '../../res/app_images.dart';
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({Key? key}) : super(key: key);
@@ -22,7 +22,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => HomeTab(),
+          builder: (context) => BottomNavBar(),
         ),
       );
     });

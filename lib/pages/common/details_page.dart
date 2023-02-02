@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fradio_nullsafety/fradio_nullsafety.dart';
 
-class Deatils extends StatefulWidget {
-  const Deatils({super.key});
+class DetailPage extends StatefulWidget {
+  const DetailPage({super.key});
 
   @override
-  State<Deatils> createState() => _DeatilsState();
+  State<DetailPage> createState() => _DetailPageState();
 }
 
-class _DeatilsState extends State<Deatils> {
+class _DetailPageState extends State<DetailPage> {
   int groupValue_4 = 0;
   final List<String> sizeValue = ['S', 'M', 'L', 'XL'];
 
@@ -100,7 +100,6 @@ class _DeatilsState extends State<Deatils> {
                   );
                 }).toList(),
               ),
-
               Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
@@ -139,7 +138,6 @@ class _DeatilsState extends State<Deatils> {
                   ),
                 ],
               ),
-
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: AutoSizeText(
@@ -150,7 +148,6 @@ class _DeatilsState extends State<Deatils> {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: sizeVariants(),
@@ -205,7 +202,6 @@ class _DeatilsState extends State<Deatils> {
                       onPressed: () {}),
                 ),
               ),
-
               SizedBox(
                 height: 10,
               ),

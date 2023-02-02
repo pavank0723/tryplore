@@ -4,17 +4,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:tryplore/product_detail.dart';
+import 'package:tryplore/pages/product_detail_page.dart';
 
-class Mens extends StatefulWidget {
+class MensPage extends StatefulWidget {
   String pincode;
-  Mens({Key? key, required this.pincode}) : super(key: key);
+  MensPage({Key? key, required this.pincode}) : super(key: key);
 
   @override
-  State<Mens> createState() => _MensState();
+  State<MensPage> createState() => _MensPageState();
 }
 
-class _MensState extends State<Mens> {
+class _MensPageState extends State<MensPage> {
   List<String> tag = [
     'Hot Selling',
     'Rust Free',

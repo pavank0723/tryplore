@@ -1,24 +1,24 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:tryplore/categoriestab.dart';
-import 'package:tryplore/my_home_page.dart';
-import 'package:tryplore/notificationtab.dart';
-import 'package:tryplore/profiletab.dart';
-import '../res/app_colors.dart';
+import 'package:tryplore/pages/common/categories_page.dart';
+import 'package:tryplore/pages/home_page.dart';
+import 'package:tryplore/pages/common/notification_page.dart';
+import 'package:tryplore/pages/profile_page.dart';
+import '../../res/app_colors.dart';
 
-class HomeTab extends StatefulWidget {
-  const HomeTab({Key? key}) : super(key: key);
+class BottomNavBar extends StatefulWidget {
+  const BottomNavBar({Key? key}) : super(key: key);
 
   @override
-  State<HomeTab> createState() => _HomeTabState();
+  State<BottomNavBar> createState() => _BottomNavBarState();
 }
 
-class _HomeTabState extends State<HomeTab> {
+class _BottomNavBarState extends State<BottomNavBar> {
   List<Widget> page = [
-    MyHomePage(),
-    CategoriesTab(),
-    NotificationTab(),
-    ProfileTab()
+    HomePage(),
+    CategoryPage(),
+    NotificationPage(),
+    ProfilePage()
   ];
   int _currentIndex = 0;
   @override
@@ -46,12 +46,12 @@ class _HomeTabState extends State<HomeTab> {
         backgroundColor: AppColors.greyLightest,
         items: [
           CustomNavigationBarItem(
-            // selectedIcon: HomeTab(),
+            // selectedIcon: BottomNavBar(),
             icon: Icon(Icons.home),
             title: Text("Home"),
           ),
           CustomNavigationBarItem(
-            // selectedIcon: CategoriesTab(),
+            // selectedIcon: CategoryPage(),
             icon: Icon(Icons.category),
             title: Text("Categories"),
           ),

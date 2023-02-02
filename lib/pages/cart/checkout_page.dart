@@ -5,14 +5,14 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 
-class Checkout extends StatefulWidget {
-  const Checkout({Key? key}) : super(key: key);
+class CheckoutPage extends StatefulWidget {
+  const CheckoutPage({Key? key}) : super(key: key);
 
   @override
-  State<Checkout> createState() => _CheckoutState();
+  State<CheckoutPage> createState() => _CheckoutState();
 }
 
-class _CheckoutState extends State<Checkout> {
+class _CheckoutState extends State<CheckoutPage> {
   int _activeCurrentStep = 0;
 
   TextEditingController name = TextEditingController();
