@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fradio_nullsafety/fradio_nullsafety.dart';
-import 'package:tryplore/pages/cart/add_to_cart.dart';
+import 'package:tryplore/ui/cart/add_to_cart.dart';
 
 class ProductDetail extends StatefulWidget {
   String pincode;

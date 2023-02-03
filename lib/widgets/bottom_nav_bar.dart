@@ -1,10 +1,10 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:tryplore/pages/common/categories_page.dart';
-import 'package:tryplore/pages/home_page.dart';
-import 'package:tryplore/pages/common/notification_page.dart';
-import 'package:tryplore/pages/profile_page.dart';
-import '../../res/app_colors.dart';
+import 'package:tryplore/res/app_colors.dart';
+import 'package:tryplore/ui/common/categories_page.dart';
+import 'package:tryplore/ui/home_page.dart';
+import 'package:tryplore/ui/common/notification_page.dart';
+import 'package:tryplore/ui/profile_page.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   List<Widget> page = [
     HomePage(),
-    CategoryPage(),
+    CategoriesPage(),
     NotificationPage(),
     ProfilePage()
   ];

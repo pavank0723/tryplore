@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:tryplore/res/app_colors.dart';
 
-class CategoryPage extends StatefulWidget {
+class CategoriesPage extends StatefulWidget {
   // String pincode;
-  CategoryPage({
+  CategoriesPage({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<CategoryPage> createState() => _CategoryPageState();
+  State<CategoriesPage> createState() => _CategoriesPageState();
 }
 
-class _CategoryPageState extends State<CategoryPage> {
+class _CategoriesPageState extends State<CategoriesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

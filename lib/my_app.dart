@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:tryplore/pages/common/splash_screen_page.dart';
+import 'package:tryplore/ui/common/splash_screen_page.dart';
 import 'package:tryplore/res/app_colors.dart';
 
 class MyApp extends StatelessWidget {

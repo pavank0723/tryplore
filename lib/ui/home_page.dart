@@ -1,12 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:tryplore/models/category_items.dart';
-import 'package:tryplore/pages/mens_page.dart';
-import 'package:tryplore/pages/common/offers_page.dart';
-import 'package:tryplore/pages/profile_page.dart';
+import 'package:tryplore/models/models.dart';
+import 'package:tryplore/res/res.dart';
+import 'package:tryplore/ui/mens_page.dart';
+import 'package:tryplore/ui/common/offers_page.dart';
+import 'package:tryplore/ui/profile_page.dart';
 import 'package:badges/badges.dart';
-import 'package:tryplore/res/app_colors.dart';
-import 'package:tryplore/res/app_images.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
