@@ -142,7 +142,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     child: CupertinoScrollbar(
                       child: ListView(
                         children: [
-                          CupertinoListTile(
+                          ListTile(
                             leading: Icon(
                               Icons.favorite,
                               color: Colors.green,
@@ -163,7 +163,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             onTap: () =>
                                 Navigator.of(context).pushNamed('/one-line'),
                           ),
-                          CupertinoListTile(
+                          ListTile(
                             leading: Icon(
                               Icons.notifications,
                               color: Colors.green,
@@ -184,7 +184,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             onTap: () =>
                                 Navigator.of(context).pushNamed('/one-line'),
                           ),
-                          CupertinoListTile(
+                          ListTile(
                             leading: Icon(
                               Icons.home,
                               color: Colors.green,
@@ -210,7 +210,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               // );
                             }),
                           ),
-                          CupertinoListTile(
+                          ListTile(
                             leading: Icon(
                               Icons.person_outlined,
                               color: Colors.green,
@@ -236,7 +236,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               // );
                             }),
                           ),
-                          CupertinoListTile(
+                          ListTile(
                             leading: Icon(
                               Icons.note,
                               color: Colors.green,
@@ -262,7 +262,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               // );
                             }),
                           ),
-                          CupertinoListTile(
+                          ListTile(
                             leading: Icon(
                               Icons.quick_contacts_dialer_outlined,
                               color: Colors.green,
@@ -288,7 +288,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               // );
                             }),
                           ),
-                          CupertinoListTile(
+                          ListTile(
                             leading: Icon(
                               Icons.lock,
                               color: Colors.green,

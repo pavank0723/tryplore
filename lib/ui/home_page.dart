@@ -5,7 +5,7 @@ import 'package:tryplore/res/res.dart';
 import 'package:tryplore/ui/mens_page.dart';
 import 'package:tryplore/ui/common/offers_page.dart';
 import 'package:tryplore/ui/profile_page.dart';
-import 'package:badges/badges.dart';
+// import 'package:badges/badges.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -176,13 +176,13 @@ class _HomePageState extends State<HomePage> {
                     // SizedBox(
                     //   width: 25,
                     // ),
-                    Badge(
-                      position: BadgePosition(top: 2, end: -10),
-                      badgeContent: Text('3',style: TextStyle(
-                          color: AppColors.greyLightest
-                      ),),
-                      child: Icon(Icons.favorite,color: AppColors.primary),
-                    ),
+                    // Badge(
+                    //   position: BadgePosition(top: 2, end: -10),
+                    //   badgeContent: Text('3',style: TextStyle(
+                    //       color: AppColors.greyLightest
+                    //   ),),
+                    //   child: Icon(Icons.favorite,color: AppColors.primary),
+                    // ),
                     SizedBox(
                       width: 25,
                     ),

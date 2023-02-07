@@ -1,6 +1,6 @@
 class AppImages {
   //#region Icon & Image root path
-  static const String rootIconPath = 'assets/icons';
+  // static const String rootIconPath = 'assets/icons';
   static const String rootImagePath = 'assets/images';
 
   //#endregion
