@@ -1,10 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:tryplore/models/models.dart';
 import 'package:tryplore/res/res.dart';
 import 'package:tryplore/ui/mens_page.dart';
 import 'package:tryplore/ui/common/offers_page.dart';
 import 'package:tryplore/ui/profile_page.dart';
+
+import '../widgets/template_home_header.dart';
 // import 'package:badges/badges.dart';
 
 class HomePage extends StatefulWidget {
@@ -26,10 +29,10 @@ class _HomePageState extends State<HomePage> {
     'https://kwabey.com/images/never-quit-white-half-sleeves-tshirt-for-men/360/267.jpg',
   ];
   List<CategoryItems> category = [
-    CategoryItems(imgLabel: AppImages.picCategory1, name: 'Offers'),
-    CategoryItems(imgLabel: AppImages.picCategory2, name: 'Men'),
-    CategoryItems(imgLabel: AppImages.picCategory3, name: 'Women'),
-    CategoryItems(imgLabel: AppImages.picCategory4, name: 'Kids'),
+    CategoryItems(imgLabel: AppImages.picCategory1_1, name: 'Offers'),
+    CategoryItems(imgLabel: AppImages.picCategory2_1, name: 'Men'),
+    CategoryItems(imgLabel: AppImages.picCategory3_1, name: 'Women'),
+    CategoryItems(imgLabel: AppImages.picCategory4_1, name: 'Kids'),
     // CategoryItems(imgLabel: 'assets/4.jpg', name: 'Beauty'),
     // CategoryItems(imgLabel: 'assets/1.jpg', name: 'Footwear'),
     // CategoryItems(imgLabel: 'assets/2.jpg', name: 'Home'),
@@ -38,6 +41,7 @@ class _HomePageState extends State<HomePage> {
   ];
   final CarouselController _controller = CarouselController();
   int _current = 0;
+
   // bool showScroll = true;
   @override
   Widget build(BuildContext context) {
@@ -162,15 +166,26 @@ class _HomePageState extends State<HomePage> {
                   bool innerBoxIsScrolled) =>
               [
                 SliverAppBar(
+                  leading: Builder(
+                    builder: (BuildContext context){
+                      return IconButton(onPressed: (){
+                        Scaffold.of(context).openDrawer();
+                      }, icon: SvgPicture.asset(AppImages.icMenu1, height: 50));
+                    },
+                  ),
                   iconTheme: IconThemeData(
                     size: 24,
-                    color: AppColors.primary,//change color on your need
+                    color: AppColors.primary, //change color on your need
                   ),
                   backgroundColor: AppColors.greyLightest,
                   floating: true,
                   snap: true,
                   // pinned: true,
-                  title: Image.asset(AppImages.picLogo,width: 90,),
+                  title: Center(
+                      child: Image.asset(
+                    AppImages.picLogo,
+                    width: 90,
+                  )),
                   actions: [
                     // Icon(Icons.search,color: AppColors.primary),
                     // SizedBox(
@@ -183,15 +198,16 @@ class _HomePageState extends State<HomePage> {
                     //   ),),
                     //   child: Icon(Icons.favorite,color: AppColors.primary),
                     // ),
-                    SizedBox(
-                      width: 25,
-                    ),
-                    Icon(Icons.shopping_cart,color: AppColors.primary),
-                    SizedBox(
-                      width: 10,
-                    ),
+                    // SizedBox(
+                    //   width: 25,
+                    // ),
+                    // Icon(Icons.shopping_cart,color: AppColors.primary),
+                    // SizedBox(
+                    //   width: 10,
+                    // ),
                     IconButton(
-                      icon: Icon(Icons.location_on_outlined,color: AppColors.primary),
+                      icon: Icon(Icons.location_on_outlined,
+                          color: AppColors.primary),
                       onPressed: () {
                         showDialog(
                             context: context,
@@ -243,342 +259,408 @@ class _HomePageState extends State<HomePage> {
 
                   bottom: PreferredSize(
                       preferredSize: const Size.fromHeight(81.0),
-                      child: Container(
-                          // height: 70,
-                          height: 80,
-                          color: Colors.white,
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    if (category[0].name.toString() == 'Men') {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => MensPage(
-                                                  pincode: pincode,
-                                                )),
-                                      );
-                                    }
-                                    if (category[0].name.toString() == 'Offers') {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => OfferPage()),
-                                      );
-                                      // Navigator.push(
-                                      //   context,
-                                      //   MaterialPageRoute(
-                                      //       builder: (context) =>
-                                      //           AppliancesCategoryListView()),
-                                      // );
-                                    }
-                                    if (category[0].name.toString() ==
-                                        'Fashion') {
-                                      // Navigator.push(
-                                      //   context,
-                                      //   MaterialPageRoute(
-                                      //       builder: (context) =>
-                                      //           FashionCategoriesView()),
-                                      // );
-                                    }
-                                    if (category[0].name.toString() ==
-                                        'Nutritions') {
-                                      // Navigator.push(
-                                      //   context,
-                                      //   MaterialPageRoute(
-                                      //       builder: (context) =>
-                                      //           NutritionCategoryListView()),
-                                      // );
-                                    }
-                                    if (category[0].name.toString() ==
-                                        'Furniture') {
-                                      // Navigator.push(
-                                      //   context,
-                                      //   MaterialPageRoute(
-                                      //       builder: (context) =>
-                                      //           FurnitureCategoryView()),
-                                      // );
-                                    }
-                                    if (category[0].name.toString() ==
-                                        'Electronics') {
-                                      // Navigator.push(
-                                      //   context,
-                                      //   MaterialPageRoute(
-                                      //       builder: (context) =>
-                                      //           ElectronicCategoryView()),
-                                      // );
-                                    }
-                                    if (category[0].name.toString() == 'Beauty') {
-                                      // Navigator.push(
-                                      //   context,
-                                      //   MaterialPageRoute(
-                                      //       builder: (context) =>
-                                      //           BeautyCategoryList()),
-                                      // );
-                                    }
-                                    if (category[0].name.toString() ==
-                                        'Jwellery') {
-                                      // Navigator.push(
-                                      //   context,
-                                      //   MaterialPageRoute(
-                                      //       builder: (context) =>
-                                      //           ArtificialJwelleryCategoryListView()),
-                                      // );
-                                    }
-                                  },
-                                  child: Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 20, vertical: 7),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        // SvgPicture.asset(category[0].imgLabel.toString()),
-                                        Flexible(
-                                          flex: 5,
-                                          child: Image(
-                                            image: AssetImage(
-                                                category[0].imgLabel.toString()),
-                                            height: 45,
-                                          ),
+                      child: Column(
+                        children: [
+                          // TemplateHomeHeader(),
+                          Container(
+                              // height: 70,
+                              height: 80,
+                              // width: MediaQuery.of(context).size.width,
+                              color: Colors.white,
+                              child: SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () {
+                                        if (category[0].name.toString() == 'Men') {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => MensPage(
+                                                      pincode: pincode,
+                                                    )),
+                                          );
+                                        }
+                                        if (category[0].name.toString() ==
+                                            'Offers') {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => OfferPage()),
+                                          );
+                                          // Navigator.push(
+                                          //   context,
+                                          //   MaterialPageRoute(
+                                          //       builder: (context) =>
+                                          //           AppliancesCategoryListView()),
+                                          // );
+                                        }
+                                        if (category[0].name.toString() ==
+                                            'Fashion') {
+                                          // Navigator.push(
+                                          //   context,
+                                          //   MaterialPageRoute(
+                                          //       builder: (context) =>
+                                          //           FashionCategoriesView()),
+                                          // );
+                                        }
+                                        if (category[0].name.toString() ==
+                                            'Nutritions') {
+                                          // Navigator.push(
+                                          //   context,
+                                          //   MaterialPageRoute(
+                                          //       builder: (context) =>
+                                          //           NutritionCategoryListView()),
+                                          // );
+                                        }
+                                        if (category[0].name.toString() ==
+                                            'Furniture') {
+                                          // Navigator.push(
+                                          //   context,
+                                          //   MaterialPageRoute(
+                                          //       builder: (context) =>
+                                          //           FurnitureCategoryView()),
+                                          // );
+                                        }
+                                        if (category[0].name.toString() ==
+                                            'Electronics') {
+                                          // Navigator.push(
+                                          //   context,
+                                          //   MaterialPageRoute(
+                                          //       builder: (context) =>
+                                          //           ElectronicCategoryView()),
+                                          // );
+                                        }
+                                        if (category[0].name.toString() ==
+                                            'Beauty') {
+                                          // Navigator.push(
+                                          //   context,
+                                          //   MaterialPageRoute(
+                                          //       builder: (context) =>
+                                          //           BeautyCategoryList()),
+                                          // );
+                                        }
+                                        if (category[0].name.toString() ==
+                                            'Jwellery') {
+                                          // Navigator.push(
+                                          //   context,
+                                          //   MaterialPageRoute(
+                                          //       builder: (context) =>
+                                          //           ArtificialJwelleryCategoryListView()),
+                                          // );
+                                        }
+                                      },
+                                      child: Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 20, vertical: 7),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            // SvgPicture.asset(category[0].imgLabel.toString()),
+                                            Flexible(
+                                              flex: 5,
+                                              child: Container(
+                                                padding: EdgeInsets.all(6),
+                                                height: 50,
+                                                decoration: BoxDecoration(
+                                                    color:
+                                                        AppColors.primaryLightest,
+                                                    borderRadius:
+                                                        BorderRadius.circular(50)),
+                                                child: Image(
+                                                  image: AssetImage(category[0]
+                                                      .imgLabel
+                                                      .toString()),
+                                                  height: 30,
+                                                ),
+                                              ),
+                                              // child: SvgPicture.asset(
+                                              //     category[0].imgLabel.toString(),
+                                              //   width: 50,
+                                              //   height: 50,
+                                              //
+                                              // ),
+                                            ),
+                                            Flexible(
+                                              flex: 2,
+                                              child: Text(
+                                                category[0].name.toString(),
+                                                style: AppTextStyle.bodyM(),
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                        Flexible(
-                                            flex: 2,
-                                            child: Text(
-                                                category[0].name.toString())),
-                                      ],
+                                      ),
                                     ),
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    if (category[1].name.toString() == 'Men') {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => MensPage(
-                                                  pincode: pincode,
-                                                )),
-                                      );
-                                    }
-                                  },
-                                  child: Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 20, vertical: 7),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        // SvgPicture.asset(category[0].imgLabel.toString()),
-                                        Flexible(
-                                          flex: 5,
-                                          child: Image(
-                                            image: AssetImage(
-                                                category[1].imgLabel.toString()),
-                                            height: 45,
-                                          ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        if (category[1].name.toString() == 'Men') {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => MensPage(
+                                                      pincode: pincode,
+                                                    )),
+                                          );
+                                        }
+                                      },
+                                      child: Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 20, vertical: 7),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            // SvgPicture.asset(category[0].imgLabel.toString()),
+                                            Flexible(
+                                              flex: 5,
+                                              child: Container(
+                                                padding: EdgeInsets.all(5),
+                                                height: 50,
+                                                decoration: BoxDecoration(
+                                                    color:
+                                                        AppColors.primaryLightest,
+                                                    borderRadius:
+                                                        BorderRadius.circular(50)),
+                                                child: Image(
+                                                  image: AssetImage(category[1]
+                                                      .imgLabel
+                                                      .toString()),
+                                                  height: 45,
+                                                ),
+                                              ),
+                                            ),
+                                            Flexible(
+                                              flex: 2,
+                                              child: Text(
+                                                category[1].name.toString(),
+                                                style: AppTextStyle.bodyM(),
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                        Flexible(
-                                            flex: 2,
-                                            child: Text(
-                                                category[1].name.toString())),
-                                      ],
+                                      ),
                                     ),
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    if (category[2].name.toString() == 'Men') {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => MensPage(
-                                                  pincode: pincode,
-                                                )),
-                                      );
-                                    }
-                                  },
-                                  child: Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 20, vertical: 7),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        // SvgPicture.asset(category[0].imgLabel.toString()),
-                                        Flexible(
-                                          flex: 5,
-                                          child: Image(
-                                            image: AssetImage(
-                                                category[2].imgLabel.toString()),
-                                            height: 45,
-                                          ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        if (category[2].name.toString() == 'Men') {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => MensPage(
+                                                      pincode: pincode,
+                                                    )),
+                                          );
+                                        }
+                                      },
+                                      child: Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 20, vertical: 7),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            // SvgPicture.asset(category[0].imgLabel.toString()),
+                                            Flexible(
+                                              flex: 5,
+                                              child: Container(
+                                                padding: EdgeInsets.all(6),
+                                                height: 50,
+                                                decoration: BoxDecoration(
+                                                    color:
+                                                        AppColors.primaryLightest,
+                                                    borderRadius:
+                                                        BorderRadius.circular(50)),
+                                                child: Image(
+                                                  image: AssetImage(category[2]
+                                                      .imgLabel
+                                                      .toString()),
+                                                  height: 45,
+                                                ),
+                                              ),
+                                            ),
+                                            Flexible(
+                                              flex: 2,
+                                              child: Text(
+                                                category[2].name.toString(),
+                                                style: AppTextStyle.bodyM(),
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                        Flexible(
-                                            flex: 2,
-                                            child: Text(
-                                                category[2].name.toString())),
-                                      ],
+                                      ),
                                     ),
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    if (category[3].name.toString() == 'Men') {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => MensPage(
-                                                  pincode: pincode,
-                                                )),
-                                      );
-                                    }
-                                  },
-                                  child: Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 20, vertical: 7),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        // SvgPicture.asset(category[0].imgLabel.toString()),
-                                        Flexible(
-                                          flex: 5,
-                                          child: Image(
-                                            image: AssetImage(
-                                                category[3].imgLabel.toString()),
-                                            height: 45,
-                                          ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        if (category[3].name.toString() == 'Men') {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => MensPage(
+                                                      pincode: pincode,
+                                                    )),
+                                          );
+                                        }
+                                      },
+                                      child: Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 20, vertical: 7),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            // SvgPicture.asset(category[0].imgLabel.toString()),
+                                            Flexible(
+                                              flex: 5,
+                                              child: Container(
+                                                padding: EdgeInsets.all(5),
+                                                height: 50,
+                                                decoration: BoxDecoration(
+                                                    color:
+                                                        AppColors.primaryLightest,
+                                                    borderRadius:
+                                                        BorderRadius.circular(50)),
+                                                child: Image(
+                                                  image: AssetImage(category[3]
+                                                      .imgLabel
+                                                      .toString()),
+                                                  height: 45,
+                                                ),
+                                              ),
+                                            ),
+                                            Flexible(
+                                              flex: 2,
+                                              child: Text(
+                                                category[3].name.toString(),
+                                                style: AppTextStyle.bodyM(),
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                        Flexible(
-                                            flex: 2,
-                                            child: Text(
-                                                category[3].name.toString())),
-                                      ],
+                                      ),
                                     ),
-                                  ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          )
-                          // ListView.builder(
-                          //   scrollDirection: Axis.horizontal,
-                          //   itemCount: 4,
-                          //   physics: BouncingScrollPhysics(),
-                          //   itemBuilder: (ctx, index) {
-                          //     return GestureDetector(
-                          //       onTap: () {
-                          //         if (category[index].name.toString() == 'Men') {
-                          //           Navigator.push(
-                          //             context,
-                          //             MaterialPageRoute(
-                          //                 builder: (context) => MensPage(
-                          //                       pincode: pincode,
-                          //                     )),
-                          //           );
-                          //         }
-                          //         if (category[index].name.toString() ==
-                          //             'Offers') {
-                          //           Navigator.push(
-                          //             context,
-                          //             MaterialPageRoute(
-                          //                 builder: (context) => OfferPage()),
-                          //           );
-                          //           // Navigator.push(
-                          //           //   context,
-                          //           //   MaterialPageRoute(
-                          //           //       builder: (context) =>
-                          //           //           AppliancesCategoryListView()),
-                          //           // );
-                          //         }
-                          //         if (category[index].name.toString() ==
-                          //             'Fashion') {
-                          //           // Navigator.push(
-                          //           //   context,
-                          //           //   MaterialPageRoute(
-                          //           //       builder: (context) =>
-                          //           //           FashionCategoriesView()),
-                          //           // );
-                          //         }
-                          //         if (category[index].name.toString() ==
-                          //             'Nutritions') {
-                          //           // Navigator.push(
-                          //           //   context,
-                          //           //   MaterialPageRoute(
-                          //           //       builder: (context) =>
-                          //           //           NutritionCategoryListView()),
-                          //           // );
-                          //         }
-                          //         if (category[index].name.toString() ==
-                          //             'Furniture') {
-                          //           // Navigator.push(
-                          //           //   context,
-                          //           //   MaterialPageRoute(
-                          //           //       builder: (context) =>
-                          //           //           FurnitureCategoryView()),
-                          //           // );
-                          //         }
-                          //         if (category[index].name.toString() ==
-                          //             'Electronics') {
-                          //           // Navigator.push(
-                          //           //   context,
-                          //           //   MaterialPageRoute(
-                          //           //       builder: (context) =>
-                          //           //           ElectronicCategoryView()),
-                          //           // );
-                          //         }
-                          //         if (category[index].name.toString() ==
-                          //             'Beauty') {
-                          //           // Navigator.push(
-                          //           //   context,
-                          //           //   MaterialPageRoute(
-                          //           //       builder: (context) =>
-                          //           //           BeautyCategoryList()),
-                          //           // );
-                          //         }
-                          //         if (category[index].name.toString() ==
-                          //             'Jwellery') {
-                          //           // Navigator.push(
-                          //           //   context,
-                          //           //   MaterialPageRoute(
-                          //           //       builder: (context) =>
-                          //           //           ArtificialJwelleryCategoryListView()),
-                          //           // );
-                          //         }
-                          //       },
-                          //       child: Padding(
-                          //         padding: EdgeInsets.symmetric(
-                          //             horizontal: 20, vertical: 7),
-                          //         child: Column(
-                          //           mainAxisAlignment:
-                          //               MainAxisAlignment.spaceBetween,
-                          //           children: [
-                          //             // SvgPicture.asset(category[index].imgLabel.toString()),
-                          //             Flexible(
-                          //               flex: 5,
-                          //               child: Image(
-                          //                 image: AssetImage(category[index]
-                          //                     .imgLabel
-                          //                     .toString()),
-                          //                 height: 45,
-                          //               ),
-                          //             ),
-                          //             Flexible(
-                          //                 flex: 2,
-                          //                 child: Text(
-                          //                     category[index].name.toString())),
-                          //           ],
-                          //         ),
-                          //       ),
-                          //     );
-                          //   },
-                          // ),
+                              )
+                              // ListView.builder(
+                              //   scrollDirection: Axis.horizontal,
+                              //   itemCount: 4,
+                              //   physics: BouncingScrollPhysics(),
+                              //   itemBuilder: (ctx, index) {
+                              //     return GestureDetector(
+                              //       onTap: () {
+                              //         if (category[index].name.toString() == 'Men') {
+                              //           Navigator.push(
+                              //             context,
+                              //             MaterialPageRoute(
+                              //                 builder: (context) => MensPage(
+                              //                       pincode: pincode,
+                              //                     )),
+                              //           );
+                              //         }
+                              //         if (category[index].name.toString() ==
+                              //             'Offers') {
+                              //           Navigator.push(
+                              //             context,
+                              //             MaterialPageRoute(
+                              //                 builder: (context) => OfferPage()),
+                              //           );
+                              //           // Navigator.push(
+                              //           //   context,
+                              //           //   MaterialPageRoute(
+                              //           //       builder: (context) =>
+                              //           //           AppliancesCategoryListView()),
+                              //           // );
+                              //         }
+                              //         if (category[index].name.toString() ==
+                              //             'Fashion') {
+                              //           // Navigator.push(
+                              //           //   context,
+                              //           //   MaterialPageRoute(
+                              //           //       builder: (context) =>
+                              //           //           FashionCategoriesView()),
+                              //           // );
+                              //         }
+                              //         if (category[index].name.toString() ==
+                              //             'Nutritions') {
+                              //           // Navigator.push(
+                              //           //   context,
+                              //           //   MaterialPageRoute(
+                              //           //       builder: (context) =>
+                              //           //           NutritionCategoryListView()),
+                              //           // );
+                              //         }
+                              //         if (category[index].name.toString() ==
+                              //             'Furniture') {
+                              //           // Navigator.push(
+                              //           //   context,
+                              //           //   MaterialPageRoute(
+                              //           //       builder: (context) =>
+                              //           //           FurnitureCategoryView()),
+                              //           // );
+                              //         }
+                              //         if (category[index].name.toString() ==
+                              //             'Electronics') {
+                              //           // Navigator.push(
+                              //           //   context,
+                              //           //   MaterialPageRoute(
+                              //           //       builder: (context) =>
+                              //           //           ElectronicCategoryView()),
+                              //           // );
+                              //         }
+                              //         if (category[index].name.toString() ==
+                              //             'Beauty') {
+                              //           // Navigator.push(
+                              //           //   context,
+                              //           //   MaterialPageRoute(
+                              //           //       builder: (context) =>
+                              //           //           BeautyCategoryList()),
+                              //           // );
+                              //         }
+                              //         if (category[index].name.toString() ==
+                              //             'Jwellery') {
+                              //           // Navigator.push(
+                              //           //   context,
+                              //           //   MaterialPageRoute(
+                              //           //       builder: (context) =>
+                              //           //           ArtificialJwelleryCategoryListView()),
+                              //           // );
+                              //         }
+                              //       },
+                              //       child: Padding(
+                              //         padding: EdgeInsets.symmetric(
+                              //             horizontal: 20, vertical: 7),
+                              //         child: Column(
+                              //           mainAxisAlignment:
+                              //               MainAxisAlignment.spaceBetween,
+                              //           children: [
+                              //             // SvgPicture.asset(category[index].imgLabel.toString()),
+                              //             Flexible(
+                              //               flex: 5,
+                              //               child: Image(
+                              //                 image: AssetImage(category[index]
+                              //                     .imgLabel
+                              //                     .toString()),
+                              //                 height: 45,
+                              //               ),
+                              //             ),
+                              //             Flexible(
+                              //                 flex: 2,
+                              //                 child: Text(
+                              //                     category[index].name.toString())),
+                              //           ],
+                              //         ),
+                              //       ),
+                              //     );
+                              //   },
+                              // ),
 
-                          )),
+                              ),
+                        ],
+                      )),
 
                   // bottom: TabBar(),
                 ),
@@ -701,11 +783,14 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           children: [
                             CarouselSlider(
+
                               options: CarouselOptions(
-                                viewportFraction: 1,
-                                // aspectRatio: ,
-                                height: 350.0,
+                                enlargeCenterPage: true,
+                                viewportFraction: 0.8,
+                                aspectRatio:16/9,
+                                height: 150.0,
                                 autoPlay: true,
+                                autoPlayCurve:Curves.fastOutSlowIn,
                                 onPageChanged: (index, reason) {
                                   setState(() {
                                     _current = index;
@@ -716,14 +801,19 @@ class _HomePageState extends State<HomePage> {
                                 return Builder(
                                   builder: (BuildContext context) {
                                     return Container(
-                                        width:
-                                            MediaQuery.of(context).size.width,
+                                      margin: EdgeInsets.all(2),
+                                        width: MediaQuery.of(context).size.width,
+
                                         // margin: EdgeInsets.symmetric(horizontal: 5.0),
-                                        decoration: BoxDecoration(),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(5),
+                                        ),
                                         child: Image.network(
                                           '$item',
-                                          fit: BoxFit.fill,
-                                        ));
+                                          fit: BoxFit.cover,
+                                          height: 50,
+                                        ),
+                                    );
                                   },
                                 );
                               }).toList(),
@@ -739,7 +829,10 @@ class _HomePageState extends State<HomePage> {
                                   onTap: () =>
                                       _controller.animateToPage(entry.key),
                                   child: Container(
-                                    width: 9.0,
+                                    width: (_current == entry.key
+                                        ? 40
+                                        : 9
+                                    ),
                                     height: 9.0,
                                     margin: EdgeInsets.only(
                                       bottom: 0,
@@ -747,10 +840,11 @@ class _HomePageState extends State<HomePage> {
                                       right: 4,
                                     ),
                                     decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
+                                      // shape: BoxShape.circle,
+                                      borderRadius: BorderRadius.circular(50),
                                       color: (_current == entry.key
-                                              ? Color.fromARGB(255, 7, 7, 7)
-                                              : Colors.blue[200]
+                                              ? AppColors.primaryLight
+                                              : AppColors.primary
                                           // color: Color(0xFFFF4E00)
                                           //     .withOpacity(_current == entry.key ? 0.9 : 0.4),
                                           ),
@@ -928,6 +1022,9 @@ class _HomePageState extends State<HomePage> {
                                             height: 250,
                                             margin: EdgeInsets.all(5),
                                             width: 200,
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(10)
+                                            ),
                                             child: Image.network(images[index],
                                                 fit: BoxFit.cover),
                                           ),
